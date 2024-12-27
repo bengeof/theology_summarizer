@@ -1,3 +1,4 @@
+
 import streamlit as st
 #from transformers import pipeline
 
@@ -5,10 +6,9 @@ import streamlit as st
 #https://stackoverflow.com/questions/18885175/read-a-zipped-file-as-a-pandas-dataframe 
 
 import pandas as pd
-#url='https://drive.google.com/file/d/1eta741E5t6Kf-5y_LpNjREXt5y7k6v84/view?usp=sharing'
-url='https://drive.google.com/file/d/1DlpbMAqIB50aJVyMRES_J_CnxYdRXH-p/view?usp=sharing'
-
-df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), sep='##', names=['text', 'key', 'period' , 'title'])
+url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
+#url='https://drive.google.com/file/d/1DlpbMAqIB50aJVyMRES_J_CnxYdRXH-p/view?usp=sharing'
+df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
 
 import os
 
@@ -33,7 +33,7 @@ st.set_page_config(
 )
 
 # Add a title and a description
-st.title("Module_1_Summarize")
+st.title("Module_2_User_query")
 st.write(
     "This application generates question answer based on the topic choosen on the author's text of interest."
 )
@@ -43,7 +43,27 @@ st.write(
 
 # Create a sidebar for input parameters
 st.sidebar.title("User input")
-#input_text = st.sidebar.text_input(label="User query", value="")
+opts_1 = [None, 'Early_Church_Fathers', 'Medieval_Scholasticism', 'Protestant_Reformers', 'Evangelicalism']
+
+    # Create a sidebar for input parameters
+st.sidebar.title("User input")
+option1 = st.sidebar.selectbox(
+        "Select period of interest",
+        opts_1,
+)
+
+opts_2 = [None, 'Saint Augustine', 'Saint John Chrysosthom']
+option2 = st.sidebar.selectbox(
+                "Select author of interest",
+                opts_2,
+)
+
+opts_3 = [None,'Homilies_On_Mathew', 'Homilies_On_Acts']
+option3 = st.sidebar.selectbox("Select document of interest",
+                                opts_3,
+)
+
+input_text = st.sidebar.text_input(label="User query", value="")
 option = st.sidebar.selectbox(
     "Select topic of interest?",
     opts,
@@ -51,17 +71,31 @@ option = st.sidebar.selectbox(
 
 generate_button = st.sidebar.button("Generate")
 
+
+
+
+
 if generate_button:
+    if opts_1 == 'Early_Church_Fathers' and opts_2 == 'Saint John Chrysosthom':
+        if opts_3 == 'Homilies_On_Mathew':
+            url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
+    if opts_1 == 'Early_Church_Fathers' and opts_2 == 'Saint John Chrysosthom':
+        if opts_3 == 'Homilies_On_Acts':
+            url='https://drive.google.com/file/d/11KE-GoUlNuiLHj-3MwQ_plZ-3kwXezj5/view?usp=sharing'
+    
+
+    df_new = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
+
 
     #hf_token ="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"
 
     #os.environ["HUGGINGFACEHUB_API_TOKEN"]= hf_token # replace hf_token with your HuggingFace API-token 
                 
-    df1 = df.loc[df['key'] == option]
+    df11 = df_new.loc[df_new['key'] == option]
 
-    print(df1)
+    
 
-    hi = df1['text'].tolist()           
+    hi = df11['text'].tolist()         
 
 
 
