@@ -1,0 +1,11 @@
+pandas
+huggingface_hub
+transformers
+transformers[torch]
+transformers[tf]
+transformers[flax]
+langchain==0.2.6
+langchain-core
+langchain-community
+langchain-huggingface
+faiss-cpu
