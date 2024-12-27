@@ -28,6 +28,7 @@ for op in opts:
         opts_c.append(op)
 
 opts = opts_c 
+opts.sort()
 
 st.set_page_config(
     page_title="Text Generation App", page_icon=":pencil2:", layout="wide"
