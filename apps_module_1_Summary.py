@@ -85,7 +85,7 @@ if generate_button:
 
     hi = df11['text'].tolist()         
 
-
+    print(hi)
 
     arts = ''
     c_l = []
