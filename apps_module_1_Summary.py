@@ -67,9 +67,9 @@ generate_button = st.sidebar.button("Generate")
 url = ''
 if generate_button:
     if option1 == 'Chrysosthom':
-        url='https://drive.google.com/file/d/1TMRVMdwXkFRzdHV-4VXnG5Ic4ozxV_tU/view?usp=sharing'
+        url='https://drive.google.com/file/d/1dZuiBxM4L7CQM4tSoneaZD7URC27zPNz/view?usp=sharing'
     if option1 == 'Augustine':
-        url='https://drive.google.com/file/d/1IoWD1NSlYLA9VNcC3BdfErV1EXGoCFBD/view?usp=sharing'
+        url='https://drive.google.com/file/d/1hgqLQEAQSdLBWK0SXbCMrq2y_pho4Unj/view?usp=sharing'
     
 
     df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
