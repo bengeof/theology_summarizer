@@ -81,6 +81,8 @@ if generate_button:
                 
     df11 = df_new.loc[df_new['key'] == option]
 
+    print(option)
+
     print(df11)
 
     hi = df11['text'].tolist()         
