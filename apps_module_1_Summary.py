@@ -74,7 +74,7 @@ if generate_button:
 
     df_new = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
 
-
+    print(df_new)
     #hf_token ="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"
 
     #os.environ["HUGGINGFACEHUB_API_TOKEN"]= hf_token # replace hf_token with your HuggingFace API-token 
