@@ -72,20 +72,20 @@ if generate_button:
         url='https://drive.google.com/file/d/1IoWD1NSlYLA9VNcC3BdfErV1EXGoCFBD/view?usp=sharing'
     
 
-    df_new = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
+    df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
 
     
     #hf_token ="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"
 
     #os.environ["HUGGINGFACEHUB_API_TOKEN"]= hf_token # replace hf_token with your HuggingFace API-token 
                 
-    df11 = df_new.loc[df_new['key'] == option]
+    df1 = df.loc[df['key'] == option]
 
     print(option)
 
-    print(df11)
+    print(df1)
 
-    hi = df11['text'].tolist()         
+    hi = df1['text'].tolist()         
 
     
 
