@@ -66,9 +66,9 @@ generate_button = st.sidebar.button("Generate")
 
 
 if generate_button:
-    if opts_1 == 'Chrysosthom':
+    if option1 == 'Chrysosthom':
         url='https://drive.google.com/file/d/1TMRVMdwXkFRzdHV-4VXnG5Ic4ozxV_tU/view?usp=sharing'
-    if opts_1 == 'Augustine':
+    if option1 == 'Augustine':
         url='https://drive.google.com/file/d/1IoWD1NSlYLA9VNcC3BdfErV1EXGoCFBD/view?usp=sharing'
     
 
