@@ -6,7 +6,7 @@ import streamlit as st
 #https://stackoverflow.com/questions/18885175/read-a-zipped-file-as-a-pandas-dataframe 
 
 import pandas as pd
-url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
+url='https://drive.google.com/file/d/1jRImDe_etDIGjB9rBYXxsdcPdmqa9x8R/view?usp=sharing'
 #url='https://drive.google.com/file/d/1DlpbMAqIB50aJVyMRES_J_CnxYdRXH-p/view?usp=sharing'
 df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
 
@@ -43,7 +43,7 @@ st.write(
 
 # Create a sidebar for input parameters
 st.sidebar.title("User input")
-opts_1 = [None, 'Early_Church_Fathers', 'Medieval_Scholasticism', 'Protestant_Reformers', 'Evangelicalism']
+opts_1 = [None, 'Chrysosthom', 'Augustine', 'Spurgeon']
 
     # Create a sidebar for input parameters
 st.sidebar.title("User input")
@@ -52,18 +52,8 @@ option1 = st.sidebar.selectbox(
         opts_1,
 )
 
-opts_2 = [None, 'Saint Augustine', 'Saint John Chrysosthom']
-option2 = st.sidebar.selectbox(
-                "Select author of interest",
-                opts_2,
-)
 
-opts_3 = [None,'Homilies_On_Mathew', 'Homilies_On_Acts']
-option3 = st.sidebar.selectbox("Select document of interest",
-                                opts_3,
-)
-
-
+input_text = st.sidebar.text_input(label="User query", value="")
 option = st.sidebar.selectbox(
     "Select topic of interest?",
     opts,
@@ -76,12 +66,10 @@ generate_button = st.sidebar.button("Generate")
 
 
 if generate_button:
-    if opts_1 == 'Early_Church_Fathers' and opts_2 == 'Saint John Chrysosthom':
-        if opts_3 == 'Homilies_On_Mathew':
-            url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
-    if opts_1 == 'Early_Church_Fathers' and opts_2 == 'Saint John Chrysosthom':
-        if opts_3 == 'Homilies_On_Acts':
-            url='https://drive.google.com/file/d/11KE-GoUlNuiLHj-3MwQ_plZ-3kwXezj5/view?usp=sharing'
+    if opts_1 == 'Chrysosthom':
+        url='https://drive.google.com/file/d/1TMRVMdwXkFRzdHV-4VXnG5Ic4ozxV_tU/view?usp=sharing'
+    if opts_1 == 'Augustine':
+        url='https://drive.google.com/file/d/1IoWD1NSlYLA9VNcC3BdfErV1EXGoCFBD/view?usp=sharing'
     
 
     df_new = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
