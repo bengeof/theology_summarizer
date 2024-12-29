@@ -53,7 +53,7 @@ option1 = st.sidebar.selectbox(
 )
 
 
-input_text = st.sidebar.text_input(label="User query", value="")
+
 option = st.sidebar.selectbox(
     "Select topic of interest?",
     opts,
