@@ -43,7 +43,7 @@ st.write(
 
 # Create a sidebar for input parameters
 st.sidebar.title("User input")
-opts_1 = [None, 'Chrysosthom', 'Augustine']
+opts_1 = [None, 'John_Chrysostom_Early_Church', 'Augustine_Early_Church', 'Thomas_Aquinas_Medieval_Scholasticism', 'John_Calvin_Protestant_Reformer', 'Charles_Spurgeon_Evangelicalism']
 
     # Create a sidebar for input parameters
 st.sidebar.title("User input")
@@ -66,10 +66,16 @@ generate_button = st.sidebar.button("Generate")
 
 url = ''
 if generate_button:
-    if option1 == 'Chrysosthom':
+    if option1 == 'John_Chrysostom_Early_Church':
         url='https://drive.google.com/file/d/1dZuiBxM4L7CQM4tSoneaZD7URC27zPNz/view?usp=sharing'
-    if option1 == 'Augustine':
+    if option1 == 'Augustine_Early_Church':
         url='https://drive.google.com/file/d/1hgqLQEAQSdLBWK0SXbCMrq2y_pho4Unj/view?usp=sharing'
+    if option1 == 'Thomas_Aquinas_Medieval_Scholasticism':
+        url='https://drive.google.com/file/d/11ueG9OJ6kAibEK2WO9Vm4sM51Gi5S7c1/view?usp=sharing'
+    if option1 == 'John_Calvin_Protestant_Reformer':
+        url='https://drive.google.com/file/d/198J8IDnxaFNw95weam_7RzD-HdtarMwy/view?usp=sharing'
+    if option1 == 'Charles_Spurgeon_Evangelicalism':
+        url='https://drive.google.com/file/d/1SnRbG9NZMWwNbJkl49aDVLVls7YEIL4n/view?usp=sharing'
     
 
     df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
